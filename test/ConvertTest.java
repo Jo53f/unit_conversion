@@ -26,32 +26,43 @@ class ConvertTest {
         k = new Unit("kelvin");
 
         c.addUnit(f, input -> input*9/5+32);
+        c.addUnit(k, input -> input+273.15f);
+        f.addUnit(c, input -> (input-32)*5/9);
     }
 
     @Test
     void convert_cm_to_m() {
-        float initalValue = 200;
+        float initialValue = 200;
         float expectedValue = 2;
 
-        float result = Convert.convert(cm, m, initalValue);
+        float result = Convert.convert(cm, m, initialValue);
         assertEquals(expectedValue, result);
     }
 
     @Test
     void convert_cm_to_km() {
-        float initalValue = 200000;
+        float initialValue = 200000;
         float expectedValue = 2;
 
-        float result = Convert.convert(cm, km, initalValue);
+        float result = Convert.convert(cm, km, initialValue);
         assertEquals(expectedValue, result);
     }
 
     @Test
     void convert_c_to_f() {
-        float initalValue = 37.5f;
+        float initialValue = 37.5f;
         float expectedValue = 99.5f;
 
-        float result = Convert.convert(c, f, initalValue);
+        float result = Convert.convert(c, f, initialValue);
+        assertEquals(expectedValue, result);
+    }
+
+    @Test
+    void convert_f_to_k() {
+        float initialValue = 100f;
+        float expectedValue = 310.92776f;
+
+        float result = Convert.convert(f, k, initialValue);
         assertEquals(expectedValue, result);
     }
 }
