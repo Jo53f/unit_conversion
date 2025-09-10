@@ -16,7 +16,7 @@ public class Convert {
      * @param value The initial floating point value to be converted.
      * @return converted value as a float
      */
-    public static float convert(Unit initialUnit, Unit targetUnit, Float value){
+    public static Object convert(Unit initialUnit, Unit targetUnit, Float value){
         HashSet<Unit> visited = new HashSet<>(); // nodes visited during search
         Queue<Conversion> queue = new ArrayDeque<>(); // nodes to be visited
 
@@ -39,6 +39,6 @@ public class Convert {
                 }
             });
         }
-        return -1;
+        return null;
     }
 }
